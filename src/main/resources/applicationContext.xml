@@ -17,7 +17,7 @@
 		<!-- 链接数据库的用户名 -->
 		<property name="user" value="root" />
 		<!-- 链接数据库的地址 -->
-		<property name="jdbcUrl" value="jdbc:mysql://39.96.84.144:3308/market_supervision" />
+		<property name="jdbcUrl" value="jdbc:mysql://39.96.84.144:3306/market_supervision" />
 		<!-- 链接数据库的密码 -->
 		<property name="password" value="1234" />
 		<!-- 数据库使用的驱动 -->
