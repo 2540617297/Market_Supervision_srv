@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    ">
+	<!-- 自动扫描web包 ,将带有注解的类 纳入spring容器管理 -->
+	<context:component-scan base-package="market"></context:component-scan>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 配置链接数据库的基本属性 -->
+		<!-- 链接数据库的用户名 -->
+		<property name="user" value="root" />
+		<!-- 链接数据库的地址 -->
+		<property name="jdbcUrl" value="jdbc:mysql://39.96.84.144:3308/market_supervision" />
+		<!-- 链接数据库的密码 -->
+		<property name="password" value="1234" />
+		<!-- 数据库使用的驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+	</bean>
+
+	<!-- 创建JdbcTemplate对象 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<!-- <constructor-arg name="dataSource" ref="dataSource"></constructor-arg> -->
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+</beans>
